@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <head lang="ru">
+        <link rel="stylesheet" href="./js/style.css" type="text/css"/>
+        <meta charset="UTF-8">
+        <meta name="author" content="Koshurinova Svatlana">
+        <title>Кредитный калькулятор Яндекс</title>
+        <script src="./js/creditCalc.js"></script>
+    </head>
+<body>
+<h3 class="main">КРЕДИТНЫЙ КАЛЬКУЛЯТОР</h3>
+<div class="main">
+    <div class="row">
+        <div class="title"><label>Возраст заемщика (лет):</label></div>
+        <div> <input class="value" type="number" id="customerAgeId" min="18" max="65"  size="2" /></div>
+    </div>
+</div>
+<div class="main">
+    <div class="row">
+        <div class="title"><label>Пол заемщика: </label></div>
+
+        <select class="valueSelect" id="customerSexId" aria-required="true" >
+            <option value="" selected="selected"></option>
+            <option value="male">Mужской</option>
+            <option value="female">Женский</option>
+        </select>
+    </div>
+</div>
+<div class="main">
+    <div class="row">
+        <div class="title"><label>Источник дохода:</label></div>
+        <select class="valueSelect" id="sourceOfIncomeId" name="sourceOfIncome" aria-required="true" >
+            <option value="" selected="selected"></option>
+            <option value="passive">Пассивный доход</option>
+            <option value="employee">Наёмный работник</option>
+            <option value="business">Собственный бизнес</option>
+            <option value="unemployed">Безработный</option>
+        </select>
+    </div>
+</div>
+<div class="main">
+    <div class="row">
+        <div class="title"> <label>Доход за последний год (млн.руб):</label></div>
+        <div>
+            <input  class="value" id="revenueId" type="number" min="0.1" step="0.1" max="100" >
+        </div>
+    </div>
+</div>
+<div class="main">
+    <div class="row">
+        <div class="title">
+            <label>Кредитный рейтинг:</label></div>
+        <select class="valueSelect" id="ratingId" name="ratingCredit" aria-required="true" >
+            <option value="" selected="selected"></option>
+            <option value="ratingM2">-2</option>
+            <option value="ratingM1">-1</option>
+            <option value="rating0">0</option>
+            <option value="rating1">1</option>
+            <option value="rating2">2</option>
+        </select>
+    </div>
+</div>
+<div class="main">
+    <div class="row">
+        <div class="title">
+            <label>Запрашиваемая сумма кредита (млн.руб): </label></div>
+        <input  class="value" id="amountCreditId" type="number" min="0.1" step="0.1" max="10" />
+    </div>
+</div>
+<div class="main">
+    <div class="row">
+        <div class="title">
+            <label>Срок погашения (лет):</label></div>
+        <input class="value" id="periodId" type="number" min="1" max="20" />
+    </div>
+</div>
+<div class="main">
+    <div class="row">
+        <div class="title">
+            <label>Цель кредита:</label></div>
+        <select  class="valueSelect" id="purposeCreditId" name="purposeCredit" aria-required="true" >
+            <option value="" selected="selected"></option>
+            <option value="mortgage">Ипотека</option>
+            <option value="businessUp">Развитие бизнеса</option>
+            <option value="autocredit">Автокредит</option>
+            <option value="consumer">Потребительский</option>
+        </select>
+    </div>
+</div>
+
+
+<br/><br/>
+<div id="buttons">
+    <button class="button" id="calculate" onclick="clickCalculate()" >Рассчитать</button>
+    <button class="button" id="reset" onclick="clickReset()">Сбросить</button>
+</div>
+
+<br/>
+<div id="msg"  style="color:Red"></div>
+
+<div id="resumeId" class="main" style='display: none;'></div>
+<div id="sumId" class="main"style='display: none;'></div>
+
+</body>
+
