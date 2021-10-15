@@ -35,6 +35,9 @@ function getValue(){
             value=false;
         }
     }
+    if (period>20){
+        period=20
+    }
 }
 
 function rateCredit() {
@@ -62,7 +65,7 @@ function rateCredit() {
         modifier=modifier + 0.25;
     }
 
-    modifier=modifier-Math.log10(amountCredit);
+    modifier=modifier-Math.log10(newSumCredit);
    }
 
 function getPayment() {
@@ -76,7 +79,7 @@ function solution(){
     if((gender =='male' && returnCreditAge>=65) || (gender =='female' && returnCreditAge>=60) || (customerAge<18)){
         solutionCredit=false;
     }
-    if((amountCredit/period) > (revenue/3)){
+    if(Number((newSumCredit/period)).toFixed(4) > Number((revenue/3)).toFixed(4)){
         solutionCredit=false;
     }
     if(rating=='-2'){
@@ -123,6 +126,7 @@ function clickCalculate() {
     document.getElementById('resumeId').style.display = 'none';
     document.getElementById('sumId').style.display = 'none';
     getValue();
+    sumCredit();
     if(value==true){
         solution();
         if (solutionCredit==false){
